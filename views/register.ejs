@@ -5,6 +5,12 @@
   <title>IoT Colorado</title>
   <% include partials/_header.ejs %>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+
+  <script type="text/javascript">
+    function Success() {
+      alert("You're registered");
+    };
+  </script>
 </head>
 
 <body>
@@ -14,10 +20,12 @@
       <div class="col-sm-6">
         <img src="images/iotColorado.jpeg" alt="IoT Colorado">
       </div>
-      <p><h1>Member Registration</h1></p>
+
+      <p><strong>
+          <h1>IoT Member Registration</h1>
+        </strong></p>
 
       <form action="/register" method="post">
-<br>
         <div class="form-group text-left">
           <label for="firstname">First Name</label>
           <div class="col-sm-7">
@@ -41,10 +49,11 @@
         </div>
 
         <button type="submit" value="register" class="btn btn-primary">Register</button>
+        <!-- <button type="submit" value="register" form.onsubmit="Success();" class="btn btn-primary">Register</button> -->
 
       </form>
     </div>
-    </div>
+  </div>
   </div>
 
 </body>

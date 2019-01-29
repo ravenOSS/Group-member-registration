@@ -16,8 +16,8 @@ router.get('/', function (req, res, next) {
 
 // ===============local register=================================
 
-router.post('/register', function (req, firstname, lastname, email, done) {
-  Member.findOne({ email: email }, function (err, member) {
+router.post('/register', function (req, res, done) {
+  Member.findOne({ email: req.body.email }, function (err, member) {
     if (err) {
       return done(err);
     }
@@ -27,7 +27,7 @@ router.post('/register', function (req, firstname, lastname, email, done) {
     } else {
       var newMember = new Member();
       newMember.firstname = req.body.firstname;
-      newMember.lastname = req.body.firstname;
+      newMember.lastname = req.body.lastname;
       newMember.email = req.body.email;
       newMember.save(function (err) {
         if (err) {
@@ -43,28 +43,17 @@ router.post('/register', function (req, firstname, lastname, email, done) {
 });
 
 /* render datatable page. */
-router.get('/table', function (req, res, next) {
-  res.render('userdetail', { title: 'dataTable' });
+router.get('/x_members/table', function (req, res, next) {
+  res.render('memberdatatable', { title: 'Members' });
 });
 
 /* This is the api route to get the datatable ajax data */
-router.get('/membertable', function (req, res, next) {
+router.get('/memberdata', function (req, res, next) {
   Member.find()
-    .sort({ createdAt: 'descending' })
+    .sort({ lastname: 'ascending' })
     .exec(function (err, members) {
       if (err) { return next(err); }
-      console.log(members);
       res.json(members);
-    });
-});
-
-/* GET members listing. */
-router.get('/members', function (req, res, next) {
-  Member.find()
-    .sort({ createdAt: 'descending' })
-    .exec(function (err, members) {
-      if (err) { return next(err); }
-      res.render('userlist', { title: 'Our Members', members: members });
     });
 });
 
