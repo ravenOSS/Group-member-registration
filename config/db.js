@@ -1,7 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-const dbURI = process.env.DB_atlasURI_SRV;
+// const dbURI = process.env.DB_atlasURI_SRV;
 
 // if (process.env.NODE_ENV === 'production') {
 //   dbURI = process.env.DB_atlasURI_SRV;

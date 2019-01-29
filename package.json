@@ -2,7 +2,11 @@
   "name": "memberregistration",
   "version": "0.0.0",
   "private": true,
-  "keywords": ["member", "registration", "list"],
+  "keywords": [
+    "member",
+    "registration",
+    "list"
+  ],
   "engines": {
     "node": "10.x"
   },
@@ -17,7 +21,8 @@
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "mongoose": "^5.4.7",
-    "morgan": "~1.9.0"
+    "morgan": "~1.9.0",
+    "production": "0.0.2"
   },
   "author": "ravenOSS",
   "license": "MIT"
