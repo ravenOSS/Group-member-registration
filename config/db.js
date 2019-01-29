@@ -1,10 +1,12 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 
-let dbURI = process.env.DB_atlasURI_SRV;
+const dbURI = process.env.DB_atlasURI_SRV;
 
-if (process.env.NODE_ENV === 'production') {
-  dbURI = process.env.DB_atlasURI_SRV;
-}
+// if (process.env.NODE_ENV === 'production') {
+//   dbURI = process.env.DB_atlasURI_SRV;
+// }
+
 // added qualifiers to stop mongoose deprecation warnings
 mongoose.connect(dbURI, { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);

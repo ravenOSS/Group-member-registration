@@ -8,8 +8,38 @@ router.get('/', function (req, res, next) {
 });
 
 /* POST registration */
-router.post('/register', function (req, res, next) {
-  res.redirect('success', { title: 'Thanks for registering' })
+// router.post('/register', function (req, res, next) {
+//   console.log(`Registered`);
+//   res.redirect('success', '/');
+//   // res.redirect('success', { title: 'Thanks for registering' })
+// });
+
+// ===============local register=================================
+
+router.post('/register', function (req, firstname, lastname, email, done) {
+  Member.findOne({ email: email }, function (err, member) {
+    if (err) {
+      return done(err);
+    }
+    if (member) {
+      console.log('member already exists');
+      return res.status(400).send('Member already registered');
+    } else {
+      var newMember = new Member();
+      newMember.firstname = req.body.firstname;
+      newMember.lastname = req.body.firstname;
+      newMember.email = req.body.email;
+      newMember.save(function (err) {
+        if (err) {
+          console.log(err);
+          throw err;
+        } else {
+          console.log(newMember);
+          return done(null, newMember);
+        }
+      });
+    }
+  });
 });
 
 /* render datatable page. */
@@ -18,23 +48,23 @@ router.get('/table', function (req, res, next) {
 });
 
 /* This is the api route to get the datatable ajax data */
-router.get('/usertable', function (req, res, next) {
+router.get('/membertable', function (req, res, next) {
   Member.find()
     .sort({ createdAt: 'descending' })
-    .exec(function (err, users) {
+    .exec(function (err, members) {
       if (err) { return next(err); }
-      console.log(users);
-      res.json(users);
+      console.log(members);
+      res.json(members);
     });
 });
 
-/* GET users listing. */
-router.get('/users', function (req, res, next) {
+/* GET members listing. */
+router.get('/members', function (req, res, next) {
   Member.find()
     .sort({ createdAt: 'descending' })
-    .exec(function (err, users) {
+    .exec(function (err, members) {
       if (err) { return next(err); }
-      res.render('userlist', { title: 'Our Customers', users: users });
+      res.render('userlist', { title: 'Our Members', members: members });
     });
 });
 

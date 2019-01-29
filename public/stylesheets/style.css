@@ -3,21 +3,17 @@ body {
 }
 
 body{
-  background-color: #f39c12;
+  background-color: #12d1f3;
 }
 
-.form-group{
-  pos
+.jumbotron{
+  background-color: rgb(138, 255, 127),
 }
 
 .container{
-  background-color: aquamarine
+  background-color: aquamarine,
 }
 
 .btn.btn-primary{
-   background-color: #12e0f3
+   background-color: #12d1f3
  }
-
- .button{
-  background-color:#12e0f3
-}
