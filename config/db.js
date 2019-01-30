@@ -8,7 +8,10 @@ const mongoose = require('mongoose');
 // }
 
 // added qualifiers to stop mongoose deprecation warnings
-mongoose.connect('mongodb+srv://cftw_2018:QfpiTfhJ6NUlyo2h@bancodeloro-keebo.azure.mongodb.net/iotColorado?retryWrites=true', { useNewUrlParser: true });
+// mongoose.connect('mongodb+srv://cftw_2018:QfpiTfhJ6NUlyo2h@bancodeloro-keebo.azure.mongodb.net/iotColorado?retryWrites=true', { useNewUrlParser: true });
+// mongoose.set('useCreateIndex', true);
+
+mongoose.connect(process.env.longDB, { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
 
 mongoose.connection.on('connected', () => {
