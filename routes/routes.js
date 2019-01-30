@@ -7,6 +7,10 @@ router.get('/', function (req, res, next) {
   res.render('register', { title: 'IoT Colorado' });
 });
 
+router.get('/confirm', function (req,res, next) {
+  res.render('confirm');
+});
+
 /* POST registration */
 // router.post('/register', function (req, res, next) {
 //   console.log(`Registered`);
@@ -39,7 +43,7 @@ router.post('/register', function (req, res, done) {
         }
       });
     }
-    res.redirect('/');
+    res.redirect('/confirm');
   });
 });
 
