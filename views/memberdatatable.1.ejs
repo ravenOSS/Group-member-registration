@@ -1,6 +1,8 @@
 <% include partials/_header %>
 <% include partials/_css-js.ejs %>
 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <script>
   $(document).ready(function () {
     $('#usertable').DataTable({
@@ -26,6 +28,17 @@
     });
     $('.dataTables_length').addClass('bs-select');
   });
+</script>
+
+<script>
+axios.get('/memberdata')
+  .then(function(members){
+    console.log(members.data)
+  })
+  .catch (function (error) {
+    console.log(error);
+    console.log(`Could not get members`);
+    })
 </script>
 
 <div class="container">

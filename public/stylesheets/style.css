@@ -17,3 +17,11 @@ body{
 .btn.btn-primary{
    background-color: #12d1f3
  }
+
+ .card {
+   background-color: lightgrey
+ }
+ 
+ .form-control{
+   text-align: left
+ }

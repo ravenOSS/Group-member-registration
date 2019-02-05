@@ -7,7 +7,7 @@ router.get('/', function (req, res, next) {
   res.render('register', { title: 'IoT Colorado' });
 });
 
-router.get('/confirm', function (req,res, next) {
+router.get('/confirm', function (req, res, next) {
   res.render('confirm');
 });
 
@@ -48,7 +48,7 @@ router.post('/register', function (req, res, done) {
 });
 
 /* render datatable page. */
-router.get('/x_members/table', function (req, res, next) {
+router.get('/x_console/table', function (req, res, next) {
   res.render('memberdatatable', { title: 'Members' });
 });
 
