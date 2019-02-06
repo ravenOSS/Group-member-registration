@@ -2,26 +2,32 @@ body {
   font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-body{
-  background-color: #12d1f3;
+body {
+  background-color: #141618;
 }
 
-.jumbotron{
-  background-color: rgb(138, 255, 127),
+.container {
+  background-color: lightgray,
 }
 
-.container{
-  background-color: aquamarine,
+.btn.btn-primary {
+  background-color: black
 }
 
-.btn.btn-primary{
-   background-color: #12d1f3
- }
+.card {
+  background-color: lightgrey
+}
 
- .card {
-   background-color: lightgrey
- }
- 
- .form-control{
-   text-align: left
- }
+.form-control {
+  text-align: left
+}
+
+#heading {
+  text-emphasis: strong;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto
+}
