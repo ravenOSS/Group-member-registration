@@ -11,7 +11,7 @@ const mongoose = require('mongoose');
 // mongoose.connect('mongodb+srv://cftw_2018:QfpiTfhJ6NUlyo2h@bancodeloro-keebo.azure.mongodb.net/iotColorado?retryWrites=true', { useNewUrlParser: true });
 // mongoose.set('useCreateIndex', true);
 
-mongoose.connect(process.env.longDB, { useNewUrlParser: true });
+mongoose.connect(process.env.DB_atlasURI_SRV, { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
 
 mongoose.connection.on('connected', () => {
