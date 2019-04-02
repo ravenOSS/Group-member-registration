@@ -4,19 +4,12 @@ var Member = require('../models/member');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('register', { title: 'IoT Colorado' });
+  res.render('register', { title: 'Our Meetup Group' });
 });
 
 router.get('/confirm', function (req, res, next) {
   res.render('confirm');
 });
-
-/* POST registration */
-// router.post('/register', function (req, res, next) {
-//   console.log(`Registered`);
-//   res.redirect('success', '/');
-//   // res.redirect('success', { title: 'Thanks for registering' })
-// });
 
 // ===============local register=================================
 
@@ -43,7 +36,7 @@ router.post('/register', function (req, res, done) {
         }
       });
     }
-    res.redirect('/confirm');
+    // res.redirect('/confirm');
   });
 });
 

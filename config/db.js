@@ -1,21 +1,18 @@
 // require('dotenv').config();
 const mongoose = require('mongoose');
 
-// const dbURI = process.env.DB_atlasURI_SRV;
+const dbURI = process.env.DB_localURI;
 
 // if (process.env.NODE_ENV === 'production') {
 //   dbURI = process.env.DB_atlasURI_SRV;
 // }
 
-// added qualifiers to stop mongoose deprecation warnings
-// mongoose.connect('mongodb+srv://cftw_2018:QfpiTfhJ6NUlyo2h@bancodeloro-keebo.azure.mongodb.net/iotColorado?retryWrites=true', { useNewUrlParser: true });
-// mongoose.set('useCreateIndex', true);
 
-mongoose.connect(process.env.dbURI, { useNewUrlParser: true });
+mongoose.connect(dbURI, { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
 
 mongoose.connection.on('connected', () => {
-  console.log(`Mongoose connected`);
+  console.log(`Mongoose connected: ${dbURI}`);
 });
 
 mongoose.connection.on('error', err => {
